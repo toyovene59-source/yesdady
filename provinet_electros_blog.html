@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empresa Provinet Electros | Blog de Electrónica del Hogar</title>
+<meta name="description" content="Blog educativo sobre electrónica del hogar, electrodomésticos, tecnología smart home y eficiencia energética. Provinet Electros.">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #0b1f3a;
+  --secondary: #1b3f6e;
+  --accent: #00aaff;
+  --accent2: #ff6b35;
+  --bg: #f4f8ff;
+  --surface: #ffffff;
+  --border: #d0e4f7;
+  --text: #1a2535;
+  --muted: #5a7090;
+  --light: #e8f2ff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ── COOKIE BANNER ── */
+#cookieBanner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--primary);
+  color: #fff;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
+}
+#cookieBanner p {
+  font-family: 'Rajdhani', sans-serif; font-size: 14px;
+  flex: 1; min-width: 200px;
+}
+#cookieBanner p a { color: var(--accent); cursor: pointer; text-decoration: underline; }
+.ck-btn {
+  padding: 9px 24px; border: none; border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif; font-weight: 700;
+  font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+  transition: opacity .2s;
+}
+.ck-btn:hover { opacity: .85; }
+.ck-accept { background: var(--accent); color: #fff; }
+.ck-reject { background: transparent; color: #aaa; border: 1px solid #555; }
+
+/* ── HEADER ── */
+header {
+  background: var(--primary);
+  box-shadow: 0 3px 20px rgba(0,0,0,0.4);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 42px; height: 42px; border-radius: 8px;
+  background: linear-gradient(135deg, #0077cc, #00aaff);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; box-shadow: 0 0 12px rgba(0,170,255,0.4);
+}
+.logo-text strong {
+  display: block; font-family: 'Rajdhani', sans-serif;
+  font-size: 20px; font-weight: 700; letter-spacing: 1.5px;
+  color: #fff;
+}
+.logo-text span {
+  font-family: 'Rajdhani', sans-serif; font-size: 11px;
+  color: rgba(0,170,255,0.8); letter-spacing: 2px; text-transform: uppercase;
+}
+nav { display: flex; gap: 4px; }
+nav a {
+  font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  padding: 8px 14px; border-radius: 4px; transition: all .2s;
+}
+nav a:hover { color: var(--accent); background: rgba(0,170,255,0.08); }
+.nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #0b1f3a 0%, #1b3f6e 60%, #0d3a6e 100%);
+  color: #fff; padding: 80px 24px 70px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '⚡'; position: absolute; right: 6%; top: 10%;
+  font-size: 180px; opacity: 0.04; pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(0,170,255,0.15); border: 1px solid rgba(0,170,255,0.4);
+  color: var(--accent); font-family: 'Rajdhani', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 3px; margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Rajdhani', sans-serif; font-size: 52px; font-weight: 700;
+  line-height: 1.1; letter-spacing: -1px; max-width: 760px; margin: 0 auto 20px;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+  font-family: 'Lora', serif; font-size: 18px;
+  color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto 36px;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 52px;
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;
+}
+.stat { text-align: center; }
+.stat-n {
+  font-family: 'Rajdhani', sans-serif; font-size: 38px; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+.stat-l {
+  font-family: 'Rajdhani', sans-serif; font-size: 12px;
+  color: rgba(255,255,255,0.45); letter-spacing: 1px; margin-top: 4px;
+}
+
+/* ── AD SPACES ── */
+.ad-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.ad-slot {
+  background: linear-gradient(135deg, #e8f2ff, #d4e8ff);
+  border: 2px dashed #9ec4e8; border-radius: 6px;
+  text-align: center; color: #6a90b0;
+  font-family: 'Rajdhani', sans-serif; font-size: 12px;
+  font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 16px;
+}
+.ad-leaderboard { height: 90px; margin: 24px 0; }
+.ad-medium { height: 250px; margin-bottom: 24px; }
+.ad-inline { height: 90px; margin: 36px 0; }
+
+/* ── LAYOUT ── */
+.content-wrap {
+  max-width: 1200px; margin: 0 auto;
+  padding: 44px 24px;
+  display: grid; grid-template-columns: 1fr 300px; gap: 44px;
+}
+
+/* ── FILTERS ── */
+.filters {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
+  align-items: center;
+}
+.filters label {
+  font-family: 'Rajdhani', sans-serif; font-size: 12px;
+  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); margin-right: 4px;
+}
+.f-btn {
+  padding: 7px 18px; border: 2px solid var(--border);
+  background: var(--surface); border-radius: 4px; cursor: pointer;
+  font-family: 'Rajdhani', sans-serif; font-size: 13px;
+  font-weight: 600; color: var(--muted); letter-spacing: 0.5px;
+  text-transform: uppercase; transition: all .2s;
+}
+.f-btn:hover, .f-btn.active {
+  border-color: var(--accent); color: var(--secondary);
+  background: rgba(0,170,255,0.06);
+}
+
+/* ── FEATURED ── */
+.featured {
+  border-radius: 10px; overflow: hidden; margin-bottom: 36px;
+  background: linear-gradient(135deg, #0b1f3a 0%, #1b3f6e 100%);
+  color: #fff; padding: 48px 40px;
+  position: relative; box-shadow: 0 8px 32px rgba(0,50,120,0.18);
+}
+.featured::before {
+  content: '★ ARTÍCULO DESTACADO';
+  position: absolute; top: 20px; left: 20px;
+  background: var(--accent2); color: #fff;
+  font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; padding: 4px 12px; border-radius: 3px;
+}
+.featured-cat {
+  font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.featured h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 30px; font-weight: 700;
+  line-height: 1.2; margin-bottom: 14px;
+}
+.featured p { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.75; }
+.featured-meta {
+  display: flex; gap: 20px; margin-top: 20px;
+  font-family: 'Rajdhani', sans-serif; font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px;
+}
+
+/* ── CARD GRID ── */
+.card-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 36px;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,60,140,0.06);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,60,140,0.13);
+  border-color: var(--accent);
+}
+.card-top {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 22px 20px 18px; color: #fff; min-height: 110px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.card-top .emoji { font-size: 30px; margin-bottom: 8px; }
+.card-top .cat {
+  font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+}
+.card-top h3 {
+  font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3;
+}
+.card-body { padding: 18px 20px; }
+.card-body p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.card-foot {
+  padding: 10px 20px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Rajdhani', sans-serif; font-size: 12px; color: var(--muted);
+}
+.pill {
+  background: var(--light); padding: 3px 10px;
+  border-radius: 10px; font-size: 12px;
+}
+
+/* ── ARTICLES ── */
+article.post {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 36px 38px; margin-bottom: 28px;
+  box-shadow: 0 2px 10px rgba(0,60,140,0.05);
+}
+.post-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--light); border: 1px solid var(--border);
+  padding: 4px 14px; border-radius: 3px; margin-bottom: 14px;
+  font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
+  color: var(--secondary); letter-spacing: 1.5px; text-transform: uppercase;
+}
+article.post h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 23px; font-weight: 700;
+  color: var(--primary); margin-bottom: 16px; line-height: 1.3;
+}
+article.post p { font-size: 15.5px; line-height: 1.85; color: var(--text); margin-bottom: 14px; }
+article.post p:last-child { margin-bottom: 0; }
+.callout {
+  background: linear-gradient(135deg, #e8f4ff, #d8ecff);
+  border-left: 4px solid var(--accent);
+  padding: 18px 22px; border-radius: 0 6px 6px 0; margin: 20px 0;
+  font-size: 15px; color: var(--secondary); line-height: 1.75;
+}
+.callout strong { color: var(--primary); }
+
+/* ── SIDEBAR ── */
+.sidebar {}
+.sidebar-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; margin-bottom: 22px;
+  box-shadow: 0 2px 10px rgba(0,60,140,0.05);
+}
+.sb-head {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 13px 18px;
+  font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700;
+  color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+}
+.sb-body { padding: 18px; }
+.sb-body p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.sb-body p + p { margin-top: 10px; }
+.sb-body strong { color: var(--text); }
+.sb-list { list-style: none; }
+.sb-list li {
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 14px; line-height: 1.4; color: var(--text);
+}
+.sb-list li:last-child { border-bottom: none; }
+.sb-list li .ic { color: var(--accent); flex-shrink: 0; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.stat-box {
+  background: var(--light); border-radius: 6px; padding: 13px;
+  text-align: center; border: 1px solid var(--border);
+}
+.stat-box .n {
+  font-family: 'Rajdhani', sans-serif; font-size: 26px; font-weight: 700; color: var(--secondary);
+}
+.stat-box .l { font-family: 'Rajdhani', sans-serif; font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--primary); color: rgba(255,255,255,0.55);
+  border-top: 3px solid var(--accent);
+  padding: 56px 24px 28px;
+}
+.footer-grid {
+  max-width: 1200px; margin: 0 auto 44px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 44px;
+}
+.footer-brand p { font-size: 14px; line-height: 1.75; margin-top: 14px; }
+.footer-brand .logo-text strong { font-size: 17px; }
+.fc h5 {
+  font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,170,255,0.2);
+}
+.fc ul { list-style: none; }
+.fc ul li { margin-bottom: 10px; font-size: 14px; }
+.fc ul li span {
+  color: rgba(255,255,255,0.5); cursor: pointer; transition: color .2s;
+}
+.fc ul li span:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-family: 'Rajdhani', sans-serif; font-size: 13px; letter-spacing: 0.5px;
+}
+.footer-links { display: flex; gap: 22px; }
+.footer-links span { color: rgba(255,255,255,0.4); cursor: pointer; transition: color .2s; }
+.footer-links span:hover { color: var(--accent); }
+
+/* ── MODALS ── */
+.overlay {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.65); backdrop-filter: blur(3px);
+  align-items: center; justify-content: center; padding: 20px;
+}
+.overlay.show { display: flex; }
+.modal {
+  background: var(--surface); border-radius: 10px;
+  max-width: 680px; width: 100%; max-height: 82vh; overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  border-top: 4px solid var(--accent);
+}
+.modal-head {
+  padding: 24px 28px; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; background: var(--surface); z-index: 1;
+}
+.modal-head h3 {
+  font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700;
+  color: var(--primary); letter-spacing: 0.5px;
+}
+.modal-close {
+  background: none; border: none; font-size: 22px; cursor: pointer;
+  color: var(--muted); line-height: 1; transition: color .2s;
+}
+.modal-close:hover { color: var(--text); }
+.modal-body { padding: 26px 28px; font-size: 14px; line-height: 1.8; color: var(--text); }
+.modal-body h4 {
+  font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700;
+  color: var(--secondary); margin: 18px 0 7px;
+}
+.modal-body p { margin-bottom: 10px; }
+.modal-body a { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .content-wrap { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  nav { display: none; }
+  .nav-toggle { display: block; }
+  nav.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--primary); padding: 12px 24px; border-top: 1px solid rgba(255,255,255,0.1); z-index: 99; }
+  .hero h1 { font-size: 36px; }
+  .hero-stats { gap: 28px; }
+  .featured { padding: 48px 24px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+  <p>🍪 Utilizamos cookies técnicas y analíticas para mejorar tu experiencia. Al hacer clic en "Aceptar" consientes su uso conforme a nuestra <span onclick="openModal('privacidad')">Política de Privacidad</span> y <span onclick="openModal('cookies')">Política de Cookies</span> (RGPD).</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <button class="ck-btn ck-accept" onclick="document.getElementById('cookieBanner').style.display='none'">Aceptar</button>
+    <button class="ck-btn ck-reject" onclick="document.getElementById('cookieBanner').style.display='none'">Solo necesarias</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">
+        <strong>Empresa Provinet Electros</strong>
+        <span>Blog · Electrónica del Hogar</span>
+      </div>
+    </div>
+    <nav id="mainNav">
+      <a href="#inicio">Inicio</a>
+      <a href="#articulos">Artículos</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-tag">📡 Empresa de electrónica del hogar · Provinet</div>
+  <h1>Tu guía sobre <span>Electrónica</span> del Hogar</h1>
+  <p>Artículos técnicos, guías de instalación, comparativas y consejos sobre electrodomésticos, tecnología smart y eficiencia energética.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">17+</div><div class="stat-l">Artículos</div></div>
+    <div class="stat"><div class="stat-n">8</div><div class="stat-l">Categorías</div></div>
+    <div class="stat"><div class="stat-n">50K+</div><div class="stat-l">Lectores/mes</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Gratuito</div></div>
+  </div>
+</section>
+
+<!-- AD LEADERBOARD TOP -->
+<div class="ad-wrap">
+  <div class="ad-slot ad-leaderboard">Espacio publicitario — 728×90</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content-wrap">
+  <main>
+
+    <!-- CATEGORY FILTERS -->
+    <div class="filters" id="categorias">
+      <label>Categoría:</label>
+      <button class="f-btn active" onclick="filter('all',this)">Todos</button>
+      <button class="f-btn" onclick="filter('electro',this)">Electrodomésticos</button>
+      <button class="f-btn" onclick="filter('smart',this)">Smart Home</button>
+      <button class="f-btn" onclick="filter('energia',this)">Energía</button>
+      <button class="f-btn" onclick="filter('audio',this)">Audio & Video</button>
+      <button class="f-btn" onclick="filter('instalacion',this)">Instalación</button>
+    </div>
+
+    <!-- FEATURED -->
+    <div class="featured" data-cat="electro">
+      <div class="featured-cat">⚡ Guía Esencial 2024</div>
+      <h2>Cómo elegir electrodomésticos eficientes: la guía definitiva</h2>
+      <p>Entender las etiquetas de eficiencia energética, las clases A+++, el consumo real en vatios y cómo calcular el ahorro anual en tu factura. Todo lo que necesitas saber antes de renovar los equipos de tu hogar.</p>
+      <div class="featured-meta">
+        <span>📅 Diciembre 2024</span>
+        <span>⏱ 12 min</span>
+        <span>👁 18.4K lecturas</span>
+      </div>
+    </div>
+
+    <!-- CARD GRID -->
+    <div class="card-grid" id="articulos">
+      <div class="card" data-cat="electro">
+        <div class="card-top">
+          <div class="emoji">🧺</div>
+          <div class="cat">Electrodomésticos</div>
+          <h3>Lavadoras: motor Inverter vs motor convencional</h3>
+        </div>
+        <div class="card-body"><p>El motor Inverter adapta su velocidad a la carga de ropa, reduciendo el consumo hasta un 40 % frente a los motores tradicionales de carbones.</p></div>
+        <div class="card-foot"><span>Electrodomésticos</span><span class="pill">8 min</span></div>
+      </div>
+      <div class="card" data-cat="smart">
+        <div class="card-top">
+          <div class="emoji">🏠</div>
+          <div class="cat">Smart Home</div>
+          <h3>Domótica básica: controla tu hogar desde el móvil</h3>
+        </div>
+        <div class="card-body"><p>Qué es un hub domótico, cómo funcionan los protocolos Zigbee y Z-Wave y cómo automatizar tu vivienda paso a paso sin gastar una fortuna.</p></div>
+        <div class="card-foot"><span>Smart Home</span><span class="pill">10 min</span></div>
+      </div>
+      <div class="card" data-cat="audio">
+        <div class="card-top">
+          <div class="emoji">📺</div>
+          <div class="cat">Audio & Video</div>
+          <h3>OLED vs QLED: diferencias técnicas reales</h3>
+        </div>
+        <div class="card-body"><p>Los píxeles autoiluminados del OLED frente a la retroiluminación con puntos cuánticos del QLED. Cuál encaja mejor según tu uso.</p></div>
+        <div class="card-foot"><span>Audio & Video</span><span class="pill">9 min</span></div>
+      </div>
+      <div class="card" data-cat="energia">
+        <div class="card-top">
+          <div class="emoji">☀️</div>
+          <div class="cat">Energía</div>
+          <h3>Paneles solares domésticos: guía de instalación</h3>
+        </div>
+        <div class="card-body"><p>Del cálculo de potencia necesaria hasta la conexión con la red, todo sobre la instalación fotovoltaica residencial para autoconsumo.</p></div>
+        <div class="card-foot"><span>Energía</span><span class="pill">15 min</span></div>
+      </div>
+    </div>
+
+    <!-- AD INLINE 1 -->
+    <div class="ad-slot ad-inline">Espacio publicitario — 728×90</div>
+
+    <!-- FULL ARTICLES -->
+    <section id="guias">
+
+      <article class="post" data-cat="electro">
+        <div class="post-tag">🧊 Electrodomésticos · 10 min</div>
+        <h2>Refrigeradores de bajo consumo: cómo funciona la tecnología No Frost</h2>
+        <p>Los refrigeradores modernos han evolucionado enormemente en las últimas décadas. Una empresa de electrónica del hogar como <strong>Provinet</strong> sabe que uno de los conceptos más importantes es la tecnología No Frost. Este sistema utiliza un ventilador para distribuir el aire frío de manera uniforme dentro del gabinete, eliminando la necesidad de descongelar manualmente el equipo.</p>
+        <p>El sistema No Frost funciona mediante un evaporador en la parte trasera del aparato y una resistencia eléctrica que se activa cada 6 a 8 horas para fundir la escarcha acumulada. El agua resultante se canaliza hacia una bandeja de evaporación ubicada sobre el compresor, donde se evapora por el calor residual. El proceso es completamente automático.</p>
+        <div class="callout">
+          <strong>Dato técnico:</strong> Los refrigeradores con clasificación A+++ consumen hasta un 60 % menos que los modelos de clase A del año 2000. En <strong>Provinet</strong>, empresa de electrónica eficiente, calculamos que el ahorro medio anual puede superar los 120 € en la factura eléctrica.
+        </div>
+        <p>El compresor Inverter, presente en los modelos premium, ajusta su velocidad según la temperatura interior y la carga del equipo. Esto reduce el consumo entre un 30 y un 40 %, disminuye el ruido de operación y extiende considerablemente la vida útil del compresor. La capacidad ideal se calcula como 60 litros por persona adulta más 20 litros adicionales si hay mucho consumo de frutas y verduras frescas.</p>
+      </article>
+
+      <article class="post" data-cat="smart">
+        <div class="post-tag">🏠 Smart Home · 12 min</div>
+        <h2>Asistentes de voz para el hogar: cómo funcionan internamente</h2>
+        <p>Los asistentes de voz inteligentes representan uno de los avances más significativos en la domótica moderna. En <strong>Provinet</strong>, como empresa de tecnología del hogar, explicamos el proceso técnico: cuando pronuncias la frase de activación, el micrófono siempre activo compara el audio ambiental con un modelo de voz local almacenado en el chip del dispositivo. Solo cuando lo detecta, activa la transmisión hacia los servidores en la nube para el procesamiento del lenguaje natural.</p>
+        <p>Este procesamiento utiliza modelos de inteligencia artificial entrenados con millones de horas de voz humana. La latencia total —desde que terminas de hablar hasta que recibes la respuesta— suele ser de entre 800 ms y 2 segundos según la velocidad de tu conexión a internet.</p>
+        <div class="callout">
+          <strong>Privacidad:</strong> <strong>Provinet</strong>, empresa de electrónica responsable, recuerda que puedes revisar y eliminar el historial de grabaciones desde las aplicaciones oficiales. Los dispositivos modernos incluyen interruptor físico para desactivar el micrófono cuando no lo necesites.
+        </div>
+        <p>La integración con otros dispositivos del hogar se realiza a través de protocolos estándar. El más común es el control por Wi-Fi sobre la red local. Los protocolos Zigbee y Z-Wave ofrecen mayor fiabilidad y menor consumo, siendo ideales para redes domóticas con muchos dispositivos conectados simultáneamente.</p>
+      </article>
+
+      <!-- AD INLINE 2 -->
+      <div class="ad-slot ad-inline">Espacio publicitario — 468×60</div>
+
+      <article class="post" data-cat="audio">
+        <div class="post-tag">🔊 Audio & Video · 11 min</div>
+        <h2>Sistemas de sonido surround: del Dolby Atmos al DTS:X</h2>
+        <p>El audio envolvente en el hogar ha alcanzado niveles de calidad profesional. <strong>Provinet</strong>, empresa de electrónica audiovisual, explica las diferencias: el Dolby Atmos introduce el "audio basado en objetos", donde cada sonido tiene una posición tridimensional precisa en el espacio, en lugar de estar asignado a un canal fijo como ocurría en el 5.1 clásico.</p>
+        <p>Para implementar Dolby Atmos en casa necesitas un receptor AV compatible, altavoces perimetrales convencionales y altavoces de presencia que pueden ser de techo o modelos que reflejen el sonido hacia arriba. La configuración mínima recomendada es 5.1.2. La ideal para cine en casa es 7.1.4.</p>
+        <p>El formato DTS:X no requiere una cantidad exacta de altavoces: el sistema analiza la disposición física de los tuyos y optimiza la distribución del sonido. Esto lo hace especialmente útil en habitaciones con limitaciones arquitectónicas que impiden colocar los altavoces en posiciones canónicas. Desde <strong>Provinet</strong>, empresa de referencia en electrónica del hogar, siempre recomendamos priorizar la acústica de la sala sobre la cantidad de altavoces.</p>
+      </article>
+
+      <article class="post" data-cat="energia">
+        <div class="post-tag">⚡ Energía · 14 min</div>
+        <h2>Tarifa eléctrica por horas: cómo optimizar el consumo doméstico</h2>
+        <p>La tarificación eléctrica por franjas horarias (PVPC) permite ahorrar significativamente si programas el uso de los electrodomésticos de mayor consumo. Una empresa de eficiencia energética como <strong>Provinet</strong> recomienda entender las tres franjas: Valle (00:00–08:00, precio mínimo), Llano (mañana y tarde media) y Punta (10:00–14:00 y 18:00–22:00, precio máximo).</p>
+        <p>Los electrodomésticos que más se benefician de la programación horaria son: lavadora (0,8–2,5 kWh por ciclo), lavavajillas (0,9–1,8 kWh), horno eléctrico (1–3,5 kWh/h) y sistemas de climatización (1–5 kWh/h). Programar estas cargas en la franja Valle puede reducir la factura entre un 25 y un 40 %.</p>
+        <div class="callout">
+          <strong>Consejo de Provinet:</strong> Instala un medidor de consumo inteligente para ver en tiempo real qué aparatos consumen más. Esta empresa de soluciones energéticas recomienda identificar primero los "vampiros energéticos" en standby, que pueden suponer hasta el 10 % de la factura mensual.
+        </div>
+      </article>
+
+      <article class="post" data-cat="instalacion">
+        <div class="post-tag">🔧 Instalación · 13 min</div>
+        <h2>Ventiladores de techo con motor DC: instalación y eficiencia</h2>
+        <p>Los ventiladores de techo con motor de corriente continua (DC) consumen entre 5 y 35 vatios frente a los 50–90 vatios de los modelos AC convencionales, un ahorro de hasta el 70 %. <strong>Provinet</strong>, empresa de electrónica residencial, explica que el motor DC adapta su velocidad de forma continua, lo que también reduce notablemente el ruido de operación.</p>
+        <p>La instalación correcta requiere verificar que la caja eléctrica del techo soporte el peso y las vibraciones del equipo. La conexión estándar en España es a 230 V monofásico con tres conductores: fase (marrón), neutro (azul) y tierra (verde-amarillo). La altura mínima del aspa más baja respecto al suelo no debe ser inferior a 2,1 metros por normativa de seguridad. Para techos de más de 3 metros, las varillas de extensión permiten bajar el equipo para maximizar la circulación de aire en la zona de ocupación.</p>
+      </article>
+
+      <article class="post" data-cat="electro">
+        <div class="post-tag">🍳 Cocina · 9 min</div>
+        <h2>Cocinas de inducción: física del calor electromagnético</h2>
+        <p>La cocina de inducción funciona mediante un principio electromagnético: bajo el cristal vitrocerámico hay una bobina de cobre por la que circula corriente alterna a alta frecuencia (20.000–50.000 Hz). Este campo magnético variable induce corrientes de Foucault directamente en el fondo metálico del recipiente, que se calienta sin que la encimera lo haga.</p>
+        <p>La eficiencia energética supera el 85 %, frente al 70 % de las vitrocerámicas de resistencia y el 40–50 % del gas doméstico. <strong>Provinet</strong>, empresa de electrónica para el hogar, destaca que solo los materiales ferromagnéticos (acero inoxidable magnético, hierro fundido, acero esmaltado) son compatibles. Para comprobarlo, simplemente acerca un imán al fondo del recipiente: si se pega, funciona con inducción.</p>
+      </article>
+
+      <!-- AD INLINE 3 -->
+      <div class="ad-slot ad-inline">Espacio publicitario — 728×90</div>
+
+      <article class="post" data-cat="smart">
+        <div class="post-tag">🔒 Seguridad Smart · 11 min</div>
+        <h2>Cerraduras inteligentes: tecnología y seguridad real</h2>
+        <p>Las cerraduras inteligentes o smart locks son una de las incorporaciones más populares en los hogares conectados. <strong>Provinet</strong>, empresa de tecnología de seguridad, explica los sistemas de comunicación más usados: Bluetooth Low Energy (BLE) para apertura a corta distancia con muy bajo consumo; Z-Wave para integración en sistemas domóticos con mayor alcance y fiabilidad; Wi-Fi para el control remoto desde cualquier lugar, con mayor consumo de batería.</p>
+        <p>La seguridad real depende del grado del cilindro mecánico (en Europa, del 1 al 6), del cifrado de las comunicaciones (AES-128 como mínimo) y de la protección contra ataques de fuerza bruta. La mayoría de cerraduras de calidad conservan una entrada de llave física de emergencia, siempre recomendable como respaldo ante fallos eléctricos o de red.</p>
+      </article>
+
+      <article class="post" data-cat="energia">
+        <div class="post-tag">🌡️ Climatización · 12 min</div>
+        <h2>Bombas de calor aerotérmicas: el futuro de la climatización</h2>
+        <p>La aerotermia extrae energía térmica del aire exterior —incluso a −15 °C— y la transfiere al interior mediante un ciclo de refrigeración inverso. Una empresa de electrónica eficiente como <strong>Provinet</strong> destaca que el indicador clave es el SCOP (Seasonal Coefficient of Performance): un sistema moderno tiene un SCOP de 3,5 a 4,5, es decir, por cada 1 kWh eléctrico consumido produce entre 3,5 y 4,5 kWh de calor útil.</p>
+        <p>Combinada con suelo radiante, la aerotermia trabaja a temperaturas de impulsión más bajas (35–45 °C frente a los 70–80 °C de una caldera convencional), lo que maximiza tanto el confort térmico como la eficiencia del sistema. El ahorro económico respecto al gas natural puede superar el 50 % en instalaciones bien dimensionadas.</p>
+      </article>
+
+      <article class="post" data-cat="audio">
+        <div class="post-tag">📡 Conectividad · 8 min</div>
+        <h2>Wi-Fi 6 y Wi-Fi 6E: por qué importa el estándar de tu router</h2>
+        <p>El estándar Wi-Fi 6 (802.11ax) permite que el router atienda múltiples dispositivos simultáneamente gracias a la tecnología OFDMA, en lugar de atenderlos uno por uno como en generaciones anteriores. Esto es decisivo cuando hay 15–30 dispositivos conectados a la vez, situación habitual en hogares modernos. <strong>Provinet</strong>, empresa de tecnología conectada, lo considera uno de los cambios más relevantes para el hogar digital.</p>
+        <p>El Wi-Fi 6E añade la banda de 6 GHz, que ofrece 1.200 MHz de espectro disponible, menor congestión y latencias extremadamente bajas, ideales para streaming en 8K y videollamadas. La desventaja es el menor alcance por la mayor atenuación a frecuencias altas, lo que puede requerir un punto de acceso adicional en viviendas grandes.</p>
+      </article>
+
+      <article class="post" data-cat="instalacion">
+        <div class="post-tag">💡 Iluminación LED · 10 min</div>
+        <h2>Iluminación LED inteligente: temperatura de color y bienestar</h2>
+        <p>La temperatura de color, medida en Kelvin (K), determina si la luz es cálida o fría. Las temperaturas bajas (2.700–3.000 K) producen luz cálida amarillada, ideal para dormitorios y zonas de relajación. Las medias (4.000–4.500 K) dan luz neutra blanca perfecta para cocinas y zonas de trabajo. Las altas (5.500–6.500 K) generan luz fría que favorece la concentración.</p>
+        <p>La ciencia del ritmo circadiano explica por qué esto importa: la luz azul (5.500 K+) suprime la producción de melatonina, afectando el sueño si se usa en las horas previas a descansar. Los sistemas de iluminación inteligente permiten programar cambios automáticos de temperatura y brillo a lo largo del día. <strong>Provinet</strong>, empresa de bienestar lumínico, recomienda empezar la automatización por los dormitorios y el salón principal.</p>
+      </article>
+
+      <article class="post" data-cat="electro">
+        <div class="post-tag">🧹 Robots Aspiradores · 9 min</div>
+        <h2>Robots aspiradores: navegación LiDAR vs cámara visual</h2>
+        <p>El sistema LiDAR emite pulsos de luz láser que rebotan en las paredes y obstáculos, calculando distancias con margen de error de milímetros incluso en completa oscuridad. Esto permite crear mapas 2D precisos de tu hogar, establecer zonas prohibidas virtuales y programar limpiezas por habitación. <strong>Provinet</strong>, empresa especialista en electrodomésticos inteligentes, los considera el estándar de referencia en navegación para aspiradores premium.</p>
+        <p>Los sistemas de cámara visual utilizan sensores ópticos e inteligencia artificial para identificar objetos específicos —calcetines, cables, mascotas— y evitarlos. Son más asequibles y excelentes para hogares con niños o animales, pero necesitan iluminación mínima y ofrecen menor precisión cartográfica que el LiDAR.</p>
+      </article>
+
+      <article class="post" data-cat="smart">
+        <div class="post-tag">🌡️ Termostatos · 8 min</div>
+        <h2>Termostatos inteligentes: algoritmos de aprendizaje automático</h2>
+        <p>Los termostatos inteligentes de última generación analizan tus hábitos durante las primeras semanas de uso: a qué hora llegas, cuándo te vas, qué temperaturas prefieres en cada momento y cómo responde térmicamente tu vivienda. Con esa información, anticipan tus necesidades y ajustan la climatización antes de que llegues a casa. <strong>Provinet</strong>, empresa de tecnología doméstica inteligente, destaca que los ahorros energéticos típicos oscilan entre el 15 y el 25 % sin sacrificar confort.</p>
+        <p>Muchos modelos incorporan también sensores de presencia, humedad relativa y calidad del aire. La combinación de geolocalización del smartphone y datos meteorológicos en tiempo real permite al sistema calcular cuándo debe comenzar a calentar o enfriar para que la temperatura sea la ideal exactamente cuando entras por la puerta.</p>
+      </article>
+
+      <article class="post" data-cat="energia">
+        <div class="post-tag">🔋 Baterías · 11 min</div>
+        <h2>Baterías de almacenamiento doméstico: tecnología LFP y NMC</h2>
+        <p>Para aplicaciones residenciales, la tecnología LFP (Litio-Hierro-Fosfato) está ganando terreno gracias a su mayor seguridad, mayor número de ciclos (4.000–6.000 frente a los 2.000–3.000 del NMC) y mayor tolerancia a las altas temperaturas. <strong>Provinet</strong>, empresa de soluciones energéticas, recomienda esta química para instalaciones fijas en viviendas situadas en climas cálidos.</p>
+        <p>Una batería de 10 kWh permite cubrir aproximadamente 8–10 horas de consumo nocturno en combinación con paneles solares para una vivienda española media. El sistema de gestión BMS controla la carga y descarga célula por célula, protegiendo contra sobrecarga, sobredescarga, cortocircuito y sobrecalentamiento, siendo el componente más crítico de todo el sistema.</p>
+      </article>
+
+      <article class="post" data-cat="instalacion">
+        <div class="post-tag">🔌 Electricidad · 10 min</div>
+        <h2>Instalación eléctrica doméstica: entiende tu cuadro de distribución</h2>
+        <p>El cuadro eléctrico es el corazón de toda la instalación doméstica. <strong>Provinet</strong>, empresa educativa de electrónica, explica sus componentes principales: el Interruptor General Automático (IGA) protege toda la instalación de sobrecargas. Los Interruptores Magnetotérmicos (PIA) protegen cada línea individual. El Interruptor Diferencial detecta fugas de corriente y desconecta en milisegundos para proteger a las personas de electrocución.</p>
+        <p>El Reglamento Electrotécnico de Baja Tensión (REBT) exige sensibilidades diferenciales de 30 mA en circuitos de baños, cocinas y exteriores. La revisión periódica del cuadro —cada 10 años en instalaciones antiguas— es fundamental para garantizar la seguridad. Especialmente importante revisar las instalaciones anteriores a 2003, cuando entró en vigor la normativa actual.</p>
+      </article>
+
+      <article class="post" data-cat="audio">
+        <div class="post-tag">🖥️ Monitores · 9 min</div>
+        <h2>Monitores para el hogar: frecuencia de refresco y tecnología de panel</h2>
+        <p>Los paneles IPS ofrecen los mejores ángulos de visión (178°) y reproducción de color, siendo ideales para fotografía, diseño y uso general. Los paneles VA destacan por su contraste nativo excepcional (3.000:1 a 6.000:1 frente al 1.000:1 del IPS), haciendo los negros más profundos. <strong>Provinet</strong>, empresa de tecnología visual, recomienda los VA para cine en casa y los IPS para trabajo creativo.</p>
+        <p>La frecuencia de refresco en Hz determina cuántas imágenes por segundo puede mostrar el monitor. Para uso ofimático, 60 Hz son suficientes. Para edición de vídeo fluida, los 144 o 165 Hz marcan una diferencia perceptible. La sincronización adaptativa elimina el tearing visual cuando la tasa de fotogramas del gráfico y la del monitor no coinciden.</p>
+      </article>
+
+      <article class="post" data-cat="electro">
+        <div class="post-tag">❄️ Climatización · 13 min</div>
+        <h2>Aire acondicionado split: guía técnica de potencia y SEER</h2>
+        <p>Para una habitación bien aislada en clima mediterráneo se necesitan aproximadamente 100 W de potencia frigorífica por metro cuadrado, aumentando a 120–150 W en climas continentales con veranos intensos. El SEER (Seasonal Energy Efficiency Ratio) es el indicador de eficiencia en refrigeración a lo largo de toda la temporada. Los equipos actuales de gama media tienen SEER de 6,5 a 8; los de gama alta alcanzan 9–12.</p>
+        <p>Un SEER de 8 significa que el equipo produce 8 kWh de frío por cada kWh eléctrico consumido. Los equipos con tecnología Inverter tienen SEER y SCOP considerablemente mejores al ajustar la potencia del compresor a la demanda real. <strong>Provinet</strong>, empresa especializada en climatización eficiente, recomienda la clase A+++ para instalaciones con uso intensivo durante varios meses al año.</p>
+      </article>
+
+    </section><!-- /guias -->
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- AD MEDIUM -->
+    <div class="ad-slot ad-medium">Espacio publicitario<br>300×250</div>
+
+    <!-- NOSOTROS -->
+    <div class="sidebar-box" id="nosotros">
+      <div class="sb-head">📡 Sobre Nosotros</div>
+      <div class="sb-body">
+        <p><strong>Empresa Provinet Electros</strong> es un blog educativo especializado en electrónica del hogar, electrodomésticos de eficiencia energética, smart home y automatización residencial.</p>
+        <p>El equipo de <strong>Provinet</strong> publica semanalmente guías y análisis técnicos para ayudarte a entender la tecnología de tu hogar. Somos una empresa de electrónica comprometida con la educación tecnológica gratuita y accesible para todos.</p>
+      </div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="sidebar-box">
+      <div class="sb-head">📊 Estadísticas</div>
+      <div class="sb-body">
+        <div class="stats-grid">
+          <div class="stat-box"><div class="n">17+</div><div class="l">Artículos</div></div>
+          <div class="stat-box"><div class="n">50K</div><div class="l">Lectores</div></div>
+          <div class="stat-box"><div class="n">8</div><div class="l">Categorías</div></div>
+          <div class="stat-box"><div class="n">4.9★</div><div class="l">Valoración</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÁS LEÍDOS -->
+    <div class="sidebar-box">
+      <div class="sb-head">🔥 Más Leídos</div>
+      <div class="sb-body">
+        <ul class="sb-list">
+          <li><span class="ic">🧺</span>Lavadoras Inverter: todo lo que debes saber antes de renovar</li>
+          <li><span class="ic">☀️</span>Paneles solares en casa: guía paso a paso para 2024</li>
+          <li><span class="ic">📺</span>OLED vs QLED: cuál elegir según tu uso real</li>
+          <li><span class="ic">🏠</span>Domótica económica: empieza con menos de 100 €</li>
+          <li><span class="ic">❄️</span>Cómo elegir el SEER correcto para tu aire acondicionado</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="sidebar-box">
+      <div class="sb-head">🗂️ Categorías</div>
+      <div class="sb-body">
+        <ul class="sb-list">
+          <li><span class="ic">🧊</span>Electrodomésticos de frío y calor</li>
+          <li><span class="ic">🏠</span>Smart Home y domótica</li>
+          <li><span class="ic">🔊</span>Audio, video y entretenimiento</li>
+          <li><span class="ic">⚡</span>Eficiencia energética</li>
+          <li><span class="ic">🔧</span>Instalación y mantenimiento</li>
+          <li><span class="ic">💡</span>Iluminación inteligente</li>
+          <li><span class="ic">🔒</span>Seguridad del hogar</li>
+          <li><span class="ic">🌡️</span>Climatización y ventilación</li>
+        </ul>
+      </div>
+    </div>
+
+  </aside>
+</div><!-- /content-wrap -->
+
+<!-- FOOTER -->
+<footer id="contacto">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon" style="width:38px;height:38px;font-size:18px;">⚡</div>
+        <div class="logo-text">
+          <strong>Empresa Provinet Electros</strong>
+          <span style="font-size:11px;color:rgba(0,170,255,0.65);letter-spacing:2px;">Blog Educativo · Electrónica del Hogar</span>
+        </div>
+      </div>
+      <p>Blog educativo independiente sobre electrónica del hogar, electrodomésticos eficientes, smart home y tecnología residencial. Todo el contenido es gratuito, educativo y sin afiliados.<br><br>Contacto: <strong style="color:rgba(255,255,255,0.7);">empresaprovinetelectros@gmail.com</strong><br><br>© 2024 Empresa Provinet Electros. Todos los derechos reservados.</p>
+    </div>
+    <div class="fc">
+      <h5>Secciones</h5>
+      <ul>
+        <li><span onclick="scrollTo(0,0)">Inicio</span></li>
+        <li><span onclick="document.getElementById('articulos').scrollIntoView({behavior:'smooth'})">Artículos</span></li>
+        <li><span onclick="document.getElementById('guias').scrollIntoView({behavior:'smooth'})">Guías Técnicas</span></li>
+        <li><span onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'})">Nosotros</span></li>
+        <li><span onclick="document.getElementById('categorias').scrollIntoView({behavior:'smooth'})">Categorías</span></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Legal</h5>
+      <ul>
+        <li><span onclick="openModal('privacidad')">Política de Privacidad</span></li>
+        <li><span onclick="openModal('terminos')">Términos de Uso</span></li>
+        <li><span onclick="openModal('cookies')">Política de Cookies</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Empresa Provinet Electros — Blog Educativo de Electrónica del Hogar</span>
+    <div class="footer-links">
+      <span onclick="openModal('privacidad')">Privacidad</span>
+      <span onclick="openModal('terminos')">Términos</span>
+      <span onclick="openModal('cookies')">Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL PRIVACIDAD -->
+<div class="overlay" id="modal-privacidad">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🔐 Política de Privacidad</h3>
+      <button class="modal-close" onclick="closeModal('privacidad')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Última actualización:</strong> Diciembre 2024</p>
+      <p>En <strong>Empresa Provinet Electros</strong> nos comprometemos a proteger tu privacidad conforme al Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales (LOPDGDD).</p>
+      <h4>Responsable del tratamiento</h4>
+      <p><strong>Empresa Provinet Electros</strong><br>Correo de contacto: <strong>empresaprovinetelectros@gmail.com</strong></p>
+      <h4>Datos que recopilamos</h4>
+      <p>Recopilamos únicamente datos de navegación anónimos a través de cookies técnicas y analíticas: dirección IP anonimizada, páginas visitadas, tiempo de permanencia y dispositivo y navegador utilizados. No recopilamos datos personales identificativos sin tu consentimiento.</p>
+      <h4>Finalidad del tratamiento</h4>
+      <p>Los datos se utilizan exclusivamente para mejorar la experiencia de navegación, analizar métricas estadísticas de forma anónima, mostrar publicidad contextual a través de Google AdSense y garantizar el correcto funcionamiento técnico del sitio.</p>
+      <h4>Base legal</h4>
+      <p>El tratamiento se basa en tu consentimiento explícito al aceptar las cookies (Art. 6.1.a RGPD) y en el interés legítimo para el funcionamiento técnico del sitio (Art. 6.1.f RGPD).</p>
+      <h4>Conservación de datos</h4>
+      <p>Los datos de navegación anónimos se conservan un máximo de 26 meses. Puedes solicitar su supresión escribiendo a <strong>empresaprovinetelectros@gmail.com</strong>.</p>
+      <h4>Tus derechos</h4>
+      <p>Tienes derecho de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad. Para ejercerlos, escribe a <strong>empresaprovinetelectros@gmail.com</strong>. También puedes presentar reclamación ante la Agencia Española de Protección de Datos (AEPD).</p>
+      <h4>Transferencias internacionales</h4>
+      <p>Google AdSense puede transferir datos a EE. UU. bajo el marco EU-US Data Privacy Framework, que garantiza un nivel adecuado de protección.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TÉRMINOS -->
+<div class="overlay" id="modal-terminos">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>📋 Términos de Uso</h3>
+      <button class="modal-close" onclick="closeModal('terminos')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Última actualización:</strong> Diciembre 2024</p>
+      <p>Al acceder y utilizar el blog <strong>Empresa Provinet Electros</strong> aceptas los presentes Términos de Uso. Si no estás de acuerdo con alguno de ellos, te pedimos que no utilices este sitio web.</p>
+      <h4>1. Naturaleza del contenido</h4>
+      <p>Este blog tiene carácter exclusivamente educativo e informativo. Los artículos sobre electrónica del hogar, electrodomésticos y tecnología son divulgativos y orientativos. Para instalaciones eléctricas y trabajos técnicos siempre recomendamos contar con profesionales certificados.</p>
+      <h4>2. Propiedad intelectual</h4>
+      <p>Todos los textos, diseños e ilustraciones publicados en este sitio son propiedad de <strong>Empresa Provinet Electros</strong> o de sus autores. Queda prohibida su reproducción total o parcial sin autorización escrita expresa.</p>
+      <h4>3. Limitación de responsabilidad</h4>
+      <p>Empresa Provinet Electros no se responsabiliza de daños derivados del uso incorrecto de la información publicada. Las instalaciones eléctricas deben ser realizadas por instaladores autorizados según el REBT vigente en España.</p>
+      <h4>4. Publicidad</h4>
+      <p>Este sitio muestra publicidad a través de Google AdSense. Los anuncios son seleccionados automáticamente por Google y no implican recomendación ni afiliación alguna por parte de Empresa Provinet Electros.</p>
+      <h4>5. Modificaciones</h4>
+      <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios serán efectivos desde su publicación. Para consultas: <strong>empresaprovinetelectros@gmail.com</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL COOKIES -->
+<div class="overlay" id="modal-cookies">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🍪 Política de Cookies</h3>
+      <button class="modal-close" onclick="closeModal('cookies')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>Este sitio web utiliza cookies conforme al RGPD y la Ley de Servicios de la Sociedad de la Información (LSSI-CE).</p>
+      <h4>Cookies técnicas (necesarias)</h4>
+      <p>Imprescindibles para el funcionamiento básico del sitio. No requieren consentimiento. Duración: sesión de navegación.</p>
+      <h4>Cookies analíticas</h4>
+      <p>Recopilan información anónima sobre el uso del sitio (páginas vistas, tiempo de visita, origen del tráfico) para mejorar el contenido. Requieren consentimiento. Duración: hasta 26 meses.</p>
+      <h4>Cookies publicitarias (Google AdSense)</h4>
+      <p>Permiten mostrar publicidad contextual y personalizada. Gestionadas por Google LLC. Requieren consentimiento. Duración: hasta 2 años.</p>
+      <h4>Cómo gestionar las cookies</h4>
+      <p>Puedes retirar tu consentimiento en cualquier momento eliminando las cookies desde la configuración de privacidad de tu navegador. Deshabilitar algunas cookies puede afectar a la funcionalidad del sitio.</p>
+      <h4>Más información</h4>
+      <p>Para cualquier consulta sobre cookies escribe a <strong>empresaprovinetelectros@gmail.com</strong></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Category filter ──
+  function filter(cat, btn) {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('[data-cat]').forEach(el => {
+      el.style.display = (cat === 'all' || el.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // ── Modals ──
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.overlay').forEach(o => {
+    o.addEventListener('click', e => {
+      if (e.target === o) { o.classList.remove('show'); document.body.style.overflow = ''; }
+    });
+  });
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
